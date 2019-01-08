@@ -190,7 +190,11 @@ export default function sortableContainer(
         !this.state.sorting
       ) {
         const {useDragHandle} = this.props;
-        const {index, collection} = node.sortableInfo;
+        const {index, collection, disabled} = node.sortableInfo;
+
+        if (disabled) {
+          return;
+        }
 
         if (
           useDragHandle &&
